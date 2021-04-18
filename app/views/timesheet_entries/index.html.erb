@@ -1,0 +1,7 @@
+<h2>Timesheet Entries</h2>
+
+<% @timesheet_entries.each do |timesheet_entry| %>
+  <p><%= "#{TimeHelper.format_date(timesheet_entry.date)}
+         #{TimeHelper.format_time(timesheet_entry.start_time)}
+         #{TimeHelper.format_time(timesheet_entry.finish_time)}" %></p>
+<% end %>
