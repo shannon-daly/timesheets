@@ -12,6 +12,9 @@ class TimesheetEntriesController < ApplicationController
     @timesheet_entry = TimesheetEntry.new(timesheet_entry_params)
     if @timesheet_entry.save
       redirect_to timesheet_entries_path
+    else
+      flash[:errors] = @timesheet_entry.errors.full_messages
+      redirect_to new_timesheet_entry_path
     end
   end
 

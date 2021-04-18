@@ -1,7 +1,23 @@
 <h2>Create New Timesheet Entry</h2>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p style="color: red"><%= error %></p>
+  <% end %>
+<% end %>
 <%= form_for(@timesheet_entry) do |f| %>
-  <%= f.text_field :date %>
-  <%= f.text_field :start_time %>
-  <%= f.text_field :finish_time %>
-  <%= f.submit "Create" %>
+  <table>
+    <tr>
+      <td>Date</td>
+      <td><%= f.text_field :date %></td>
+    </tr>
+    <tr>
+      <td>Start Time</td>
+      <td><%= f.text_field :start_time %></td>
+    </tr>
+    <tr>
+      <td>Finish Time</td>
+      <td><%= f.text_field :finish_time %></td>
+    </tr>
+  </table>
+  <p><%= f.submit "Create" %></p>
 <% end %>
