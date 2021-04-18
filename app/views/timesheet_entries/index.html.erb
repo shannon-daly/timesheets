@@ -1,8 +1,9 @@
 <%= button_to "Create New Timesheet Entry", { :action => "new" }, :method => :get %>
 <h2>Timesheet Entries</h2>
 
-<% @timesheet_entries.each do |timesheet_entry| %>
-  <p><%= "#{TimeHelper.format_date(timesheet_entry.date)}
-         #{TimeHelper.format_time(timesheet_entry.start_time)}
-         #{TimeHelper.format_time(timesheet_entry.finish_time)}" %></p>
+<% @timesheet_entries.each do |entry| %>
+  <p><%= "#{TimeHelper.format_date(entry.date)}
+         #{TimeHelper.format_time(entry.start_time)}
+         #{TimeHelper.format_time(entry.finish_time)}
+         $#{TimeHelper.calculate_entry_amount(entry)}" %></p>
 <% end %>
