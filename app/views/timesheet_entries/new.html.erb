@@ -1,0 +1,7 @@
+<h2>Create New Timesheet Entry</h2>
+<%= form_for(@timesheet_entry) do |f| %>
+  <%= f.text_field :date %>
+  <%= f.text_field :start_time %>
+  <%= f.text_field :finish_time %>
+  <%= f.submit "Create" %>
+<% end %>
